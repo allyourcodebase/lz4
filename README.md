@@ -11,7 +11,7 @@ First, update your `build.zig.zon`:
 ```
 # Initialize a `zig build` project if you haven't already
 zig init
-zig fetch --save git+https://github.com/allyourcodebase/lz4.git#1.10.0
+zig fetch --save git+https://github.com/allyourcodebase/lz4.git#1.10.0-1
 ```
 
 You can then import `lz4` in your `build.zig` with:

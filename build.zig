@@ -18,9 +18,9 @@ pub fn build(b: *std.Build) void {
     });
     b.installArtifact(lz4);
     lz4.addIncludePath(upstream.path("lib"));
-    lz4.installHeader(upstream.path("lib/lz4.h"), "lz4.h");
-    lz4.installHeader(upstream.path("lib/lz4hc.h"), "lz4hc.h");
-    lz4.installHeader(upstream.path("lib/lz4frame.h"), "lz4frame.h");
+    lz4.installHeader(upstream.path("lib/lz4.h"), "lz4/lz4.h");
+    lz4.installHeader(upstream.path("lib/lz4hc.h"), "lz4/lz4hc.h");
+    lz4.installHeader(upstream.path("lib/lz4frame.h"), "lz4/lz4frame.h");
     lz4.addCSourceFiles(.{
         .root = upstream.path("lib"),
         .files = &.{
