@@ -5,10 +5,12 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode") orelse .static;
     const strip = b.option(bool, "strip", "Omit debug information");
     const pic = b.option(bool, "pie", "Produce Position Independent Code");
 
-    const lz4 = b.addStaticLibrary(.{
+    const lz4 = b.addLibrary(.{
+        .linkage = linkage,
         .name = "lz4",
         .root_module = b.createModule(.{
             .target = target,
