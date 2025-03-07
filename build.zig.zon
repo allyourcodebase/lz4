@@ -1,7 +1,7 @@
 .{
-    .name = "lz4",
+    .name = .lz4,
     .version = "1.10.0-1",
-    .minimum_zig_version = "0.12.0",
+    .minimum_zig_version = "0.14.0",
     .dependencies = .{
         .lz4 = .{
             .url = "git+https://github.com/lz4/lz4.git?ref=v1.10.0#ebb370ca83af193212df4dcbadcc5d87bc0de2f0",
@@ -14,4 +14,5 @@
         "LICENSE",
         "README.md",
     },
+    .fingerprint = 0x4ae88e9fc3b30c7b, // Changing this has security and trust implications.
 }

@@ -10,18 +10,20 @@ pub fn build(b: *std.Build) void {
 
     const lz4 = b.addStaticLibrary(.{
         .name = "lz4",
-        .target = target,
-        .optimize = optimize,
-        .pic = pic,
-        .strip = strip,
-        .link_libc = true,
+        .root_module = b.createModule(.{
+            .target = target,
+            .optimize = optimize,
+            .pic = pic,
+            .strip = strip,
+            .link_libc = true,
+        }),
     });
     b.installArtifact(lz4);
-    lz4.addIncludePath(upstream.path("lib"));
+    lz4.root_module.addIncludePath(upstream.path("lib"));
     lz4.installHeader(upstream.path("lib/lz4.h"), "lz4/lz4.h");
     lz4.installHeader(upstream.path("lib/lz4hc.h"), "lz4/lz4hc.h");
     lz4.installHeader(upstream.path("lib/lz4frame.h"), "lz4/lz4frame.h");
-    lz4.addCSourceFiles(.{
+    lz4.root_module.addCSourceFiles(.{
         .root = upstream.path("lib"),
         .files = &.{
             "lz4.c",
