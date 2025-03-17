@@ -5,7 +5,7 @@
     .dependencies = .{
         .lz4 = .{
             .url = "git+https://github.com/lz4/lz4.git?ref=v1.10.0#ebb370ca83af193212df4dcbadcc5d87bc0de2f0",
-            .hash = "1220806155b365608bdfec2a076502c51a8127af1d800b5512d3ee93601a1aca7765",
+            .hash = "N-V-__8AAJqFGQCAYVWzZWCL3-wqB2UCxRqBJ68dgAtVEtPu",
         },
     },
     .paths = .{
