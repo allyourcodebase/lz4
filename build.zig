@@ -22,6 +22,7 @@ pub fn build(b: *std.Build) void {
     });
     b.installArtifact(lz4);
     lz4.root_module.addIncludePath(upstream.path("lib"));
+    lz4.root_module.addCMacro("XXH_NAMESPACE", "LZ4_");
     lz4.installHeader(upstream.path("lib/lz4.h"), "lz4.h");
     lz4.installHeader(upstream.path("lib/lz4hc.h"), "lz4hc.h");
     lz4.installHeader(upstream.path("lib/lz4frame.h"), "lz4frame.h");
